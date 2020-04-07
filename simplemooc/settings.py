@@ -137,3 +137,8 @@ EMAIL_HOST_PASSWORD = '123456'
 EMAIL_PORT = 587
 
 CONTACT_EMAIL = 'queirozsc@gmail.com'
+
+# Auth
+LOGIN_URL = 'accounts:login'
+LOGIN_REDIRECT_URL = 'core:home'
+LOGOUT_URL = 'accounts:logout'
