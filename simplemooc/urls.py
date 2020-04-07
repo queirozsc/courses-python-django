@@ -17,12 +17,15 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+
 from simplemooc.core import urls as core_urls
+from simplemooc.accounts import urls as accounts_urls
 from simplemooc.courses import urls as courses_urls
 
 urlpatterns = [
     path('', include((core_urls, 'core'), namespace='core')),
     path('cursos/', include((courses_urls, 'courses'), namespace='courses')),
+    path('conta/', include((accounts_urls, 'accounts'), namespace='accounts')),
     path('admin/', admin.site.urls),
 ]
 
