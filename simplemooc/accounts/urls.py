@@ -20,4 +20,8 @@ urlpatterns = [
         'cadastre-se/', 
         views.register,
         name='register'),
+    path(
+        'editar/', 
+        views.edit,
+        name='edit'),
 ]
