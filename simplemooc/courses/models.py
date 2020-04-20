@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 class CourseManager(models.Manager):
 
     def search(self, query):
@@ -9,8 +10,8 @@ class CourseManager(models.Manager):
             models.Q(description__icontains=query)
         )
 
-class Course(models.Model):
 
+class Course(models.Model):
     name = models.CharField('Nome', max_length=100)
     slug = models.SlugField(("Atalho"))
     description = models.TextField('Descrição simples', blank=True)
@@ -27,7 +28,7 @@ class Course(models.Model):
 
     def get_absolute_url(self):
         return reverse("courses:details", args=(self.slug,))
-    
+
     class Meta:
         verbose_name = 'Curso'
         verbose_name_plural = 'Cursos'
