@@ -2,3 +2,4 @@ simplemooc/**/*.pyc
 .vscode/settings.json
 simplemooc/accounts/__pycache__/urls.cpython-37.pyc
 simplemooc/accounts/__pycache__/views.cpython-37.pyc
+venv/**
