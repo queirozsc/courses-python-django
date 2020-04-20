@@ -24,4 +24,8 @@ urlpatterns = [
         'editar/', 
         views.edit,
         name='edit'),
+    path(
+        'editar-senha/', 
+        views.edit_password,
+        name='edit_password'),
 ]
