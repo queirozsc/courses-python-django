@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 
 from .forms import ContactCourse
-from .models import Course
+from .models import Course, Enrollment
 
 
 def index(request):
@@ -37,3 +38,11 @@ def details(request, slug):
     context['form'] = form
     context['course'] = course
     return render(request, template_name, context)
+
+@login_required
+def enrollment(request, slug):
+    course = get_object_or_404(Course, slug=slug)
+    enrollment, created = Enrollment.objects.get_or_create(user=request.user, course=course)
+    if created:
+        enrollment.active()
+    return redirect('accounts:dashboard')
