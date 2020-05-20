@@ -21,6 +21,10 @@ urlpatterns = [
         views.register,
         name='register'),
     path(
+        'nova-senha/',
+        views.password_reset,
+        name='password_reset'),
+    path(
         'editar/',
         views.edit,
         name='edit'),
